@@ -47,6 +47,7 @@ contract S_C{
         if(inBank[msg.sender] != true){
              require(account.length<10);
              account.push(msg.sender);
+             inBank[msg.sender] = true;
         }
         require((this.balance-amount)>=1000000000000000000); //Not allow to borrow if bank’s total remaining balance is < 1 ether after transfer ether to borrower
         uint interest = amount/100*5;
